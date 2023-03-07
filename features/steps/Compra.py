@@ -1,5 +1,5 @@
 import time
-
+from behave import *
 from behave import given, when, then
 from selenium import *
 from selenium import webdriver
@@ -60,41 +60,42 @@ def step_impl(context):
 
 @when(u'clico no botao Find Flights')
 def step_impl(context):
+    context.driver.find_element(By.CSS_SELECTOR, 'input.btn.btn-primary').click
 
     print('Passo 4 - Clicou no botão Find Flights')
 
 
 @then(u'sou direcionado para a pagina de selecao de voos')
 def step_impl(context):
-
+    assert context.driver.find_element(By.TAG_NAME, 'h3').text() == 'Flights from São Paolo to Rome: '
     print('Passo 5 - Direcionou para a pagina de pagamento')
 
 @when(u'seleciono o primeiro voo')
 def step_impl(context):
-
+    context.driver.find_element(By.CSS_SELECTOR, 'input.btn.btn-small').click
     print('Passo 6 - Selecionou o primeiro voo')
 
 @then(u'sou direcionado para a pagina de pagamento')
 def step_impl(context):
-
+    assert context.driver.find_element(By.CSS_SELECTOR, 'div.container:nth-child(2) form:nth-child(9) div.control-group:nth-child(12) div.controls > input.btn.btn-primary').text == 'Please submit the form below to purchase the flight'
     print('Passo 7 - Direcionou para a pagina de pagamento')
 
 @when(u'preencho os dados para o pagamento')
 def step_impl(context):
-
+    context.driver.find_element(By.ID, 'inputName').send_keys('James Bond')
     print('Passo 8 - Preencheu os dados para o pagamento ')
 
 @when(u'clico no botao Puchase Flight')
 def step_impl(context):
-
+    context.driver.find_element(By.CSS_SELECTOR, 'input.btn.btn-primary').click()
     print('Passo 9 - Clicou no botão Purchase Flight')
 
 @then(u'sou direcionado para a pagina de confirmacao')
 def step_impl(context):
-
+    assert context.driver.find_element(By.TAG_NAME, 'h1').text() == 'Thank you for your purchase today!'
     print('Passo 10 - Direcionou para a pagina de confirmação')
 
-@when(u'seleciono a a cidade de origem como "São Paolo" para "Rome"')
-def step_impl(context):
+#@when(u'seleciono a a cidade de origem como "São Paolo" para "Rome"')
+#def step_impl(context):
 
-    print('Passo 2c - Seleciocou a cidade de origem e destino')
+ #   print('Passo 2c - Seleciocou a cidade de origem e destino')
