@@ -20,8 +20,10 @@ def before_all(context):   # Antes de Tudo
 def after_all(context):     # Depois de tudo
     # Desligar / Destruir o objeto do SE
     context.driver.quit()
-
-
+    print('Passo Z - Depois de Tudo')
+# Bloco executando ao final de cada passo
+def after_step(context, step):
+    print()
 
 
 
