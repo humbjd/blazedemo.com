@@ -15,7 +15,7 @@ def before_all(context):   # Antes de Tudo
     context.driver.maximize_window()
 
     print('Passo A - Antes de Tudo')
-
+#
 # Fim
 def after_all(context):     # Depois de tudo
     # Desligar / Destruir o objeto do SE
