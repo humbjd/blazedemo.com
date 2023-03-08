@@ -19,10 +19,16 @@ def before_feature(context,feature):
     if'compra_passagem' in feature.tag:
         context.execute_steps(
             # Pode ser incluidas outras ações
+            # 3 principais problemas na automação
+            # Seletores ou identificadores
+            # Sincronismo
+            # Programação exótica
+
         )
 
 
 @given(u'que acesso o site Blazedemo')
+@given(u'que acesso o portal Blazedemo')
 def step_impl(context):
     context.driver.get('https://www.blazedemo.com')
     print('Passo 1 - Acessou o site Blazedemo')

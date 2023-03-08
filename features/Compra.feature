@@ -17,7 +17,7 @@ Feature: Compra de Passagem Aerea
 
 
 
-  Scenario: De São Paulo a Roma compacto
+  Scenario Outline: De São Paulo a Roma compacto
     Given que acesso o site Blazedemo
     When seleciono a a cidade de origem como "São Paolo" para "Rome"
     Then sou direcionado para a pagina de selecao de voos
@@ -26,3 +26,9 @@ Feature: Compra de Passagem Aerea
     When preencho os dados para o pagamento
     And clico no botao Puchase Flight
     Then sou direcionado para a pagina de confirmacao
+
+    Examples:
+      |origem       | destino       |
+      |Philadephia  | Buenos Aires  |
+      |Mexico City  | Cairo         |
+
