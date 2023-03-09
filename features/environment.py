@@ -1,34 +1,27 @@
 from selenium import webdriver
-#from selenium import webdriver_manager
-#from webdriver_manager.chrome import ChromeDriverManager
-#from selenium.webdriver.chrome.service import Service
-#service = Service(ChromeDriverManager().install())
-#navegador = webdriver.Chrome(service=service)
 
-# Inicio
+# Início
+def before_all(context):    # Antes de Tudo
 
-def before_all(context):   # Antes de Tudo
-    #Declarar o SE, instanciar como o navegador e apontar o driver
-    context.driver = webdriver.Chrome('Driver_Chrome_Manager/chromedriver.exe')
+    # Declarar o Selenium, instanciar como o navegador e apontar o driver
+    context.driver = webdriver.Chrome('drivers/chrome/96/chromedriver.exe')
 
     # Maximizar a janela do navegador
     context.driver.maximize_window()
 
+    # Define uma espera máxima para todos os elementos do script
+    context.driver.implicitly_wait(30)
+
     print('Passo A - Antes de Tudo')
-#
+
 # Fim
-def after_all(context):     # Depois de tudo
-    # Desligar / Destruir o objeto do SE
+def after_all(context):     # Depois de Tudo
+
+    # Desligar / Detruir o objeto do Selenium
     context.driver.quit()
+
     print('Passo Z - Depois de Tudo')
-# Bloco executando ao final de cada passo
+
+# Bloco executado ao final de cada step
 def after_step(context, step):
     print()
-
-
-
-
-
-
-
-

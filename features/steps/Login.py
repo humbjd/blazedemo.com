@@ -12,7 +12,7 @@ def step_impl(context):
 def step_impl(context):
     context.driver.find_element(By.ID, 'email').send_keys('correia@iterasys.com.br')
     context.driver.find_element(By.ID, 'password').send_keys('xpto1234')
-    time.sleep(3)
+    time.sleep(1)
     context.driver.find_element(By.CSS_SELECTOR, 'button.btn.btn-primary').click()
 
 @then(u'vejo a mensagem de confirmacao')
